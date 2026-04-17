@@ -54,7 +54,7 @@ Most retail businesses are sitting on gold and don't know it. RetailIQ is built 
 
 `Python` · `SQL` · `Power BI` · `DAX`
 
-> 🚧 Currently in development — repository coming soon.
+> 🚧 Currently in development — [repository coming soon](https://github.com/Alx00-lab/RetailIQ.git).
 
 ---
 
