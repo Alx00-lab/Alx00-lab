@@ -57,7 +57,7 @@ End-to-end pipeline on a 100,000-row ticket dataset: extraction → cleaning →
 #### 🧾 [Invoice PDF Extractor](https://github.com/Alx00-lab/invoice-extractor) — *live tool, warehouse layer in progress*
 A working extraction tool that pulls structured data out of unstructured invoice PDFs, with a public demo.
 
-- 🔗 **[Live demo](https://invoice-extractor-cmdkq7ehi57dhjqgqbzlj6.streamlit.app/)** *(add your Streamlit URL here)*
+- 🔗 **[Live demo](https://invoice-extractor-cmdkq7ehi57dhjqgqbzlj6.streamlit.app/)**
 - Adding a dbt transformation layer and a BigQuery load so extracted invoice data lands in a queryable warehouse, not just a UI
 
 `Python` · `Streamlit` · `dbt` · `BigQuery`
