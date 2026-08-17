@@ -31,15 +31,15 @@ Raw data  →  Python (extract & clean)  →  dbt (transform)  →  BigQuery (wa
 
 ### Stack
 
-| Layer | Tools |
-|---|---|
-| Languages | `Python` · `SQL` |
-| Transformation | `dbt` |
-| Warehouse | `BigQuery` · `DuckDB` (local dev) |
-| Orchestration | `Airflow` |
-| Quality | `dbt tests` · `Great Expectations` |
-| Containers | `Docker` |
-| Versioning | `Git` / `GitHub` |
+| Layer | Tools | Depth |
+|---|---|---|
+| Languages | `Python` · `SQL` | pandas for ETL scripting · window functions, CTEs, query optimization |
+| Transformation | `dbt` | staging → intermediate → marts, tests, documentation |
+| Warehouse | `BigQuery` · `DuckDB` (local dev) | cloud target + local dev warehouse before promoting to prod |
+| Orchestration | `Airflow` | DAG design for multi-step pipelines (extract → clean → transform → validate) |
+| Quality | `dbt tests` · `Great Expectations` | contract-style assertions, regression tests for known data bugs |
+| Containers | `Docker` | containerizing full pipelines for reproducible runs |
+| Versioning | `Git` / `GitHub` | |
 
 ---
 
@@ -49,8 +49,8 @@ Raw data  →  Python (extract & clean)  →  dbt (transform)  →  BigQuery (wa
 End-to-end pipeline on a 100,000-row ticket dataset: extraction → cleaning → transformation → warehouse, orchestrated and containerized.
 
 - Built a validated extraction layer and caught a silent data-loss bug where pandas' default null-handling was quietly wiping ~20,000 legitimate values
-- Two distinct, data-verified rules for placeholder-to-null conversion — one state-dependent, one universal — confirmed by cross-tabulating the data rather than assumed
-- Currently building the dbt + BigQuery layer, with Airflow orchestration and Docker containerization next
+- Two distinct, data-verified rules for placeholder-to-null conversion: assumed `csat_score = 0` was gated by ticket status, same as `resolution_time_hours` — ran a cross-tab before shipping the rule and found a flat ~30% zero-rate across every status, terminal and non-terminal alike. That meant it was a universal "not rated" sentinel, not a state-dependent placeholder, so the rule changed to match what the data actually showed
+- Currently loading into DuckDB locally, then building the dbt models on top before promoting to BigQuery, with Airflow orchestration and Docker containerization next
 
 `Python` · `pandas` · `SQL` · `dbt` · `BigQuery` · `Airflow` · `Docker`
 
