@@ -1,71 +1,82 @@
-# Hi, I'm Alexander 👋
-
-### Data Analyst · Retail Intelligence · Business Decisions Backed by Data
-
-I don't just clean data — I make it speak.  
-My work sits at the crossroads of **retail operations** and **data strategy**: taking messy, unreliable datasets and turning them into dashboards, reports, and insights that help businesses understand their customers, protect their revenue, and move faster.
-
-If you're building a retail data team or looking for someone who can own the full pipeline from raw CSV to boardroom-ready dashboard — let's talk.
-
----
-
-## What I Do
-
-```
-Raw Data  →  Python (clean)  →  SQL (model)  →  Power BI (visualize)  →  Business Decision
-```
-
-- **Customer Intelligence** — Who are your top customers? Who's about to leave?
-- **Revenue Analysis** — Where is money coming from, and where is it leaking?
-- **Pipeline Automation** — No more manual exports. Data that refreshes itself.
-- **Dashboard Design** — Power BI reports built for people who don't speak SQL.
-
----
-
-## Tech Stack
-
-**Core**  
-![SQL](https://img.shields.io/badge/SQL-Schema%20%26%20Queries-blue?style=flat-square)
-![Python](https://img.shields.io/badge/Python-Data%20Wrangling-3776AB?style=flat-square&logo=python&logoColor=white)
-![Power BI](https://img.shields.io/badge/Power%20BI-Dashboards%20%26%20DAX-F2C811?style=flat-square&logo=powerbi&logoColor=black)
-![Excel](https://img.shields.io/badge/Excel-Analysis%20%26%20Reporting-217346?style=flat-square&logo=microsoftexcel&logoColor=white)
-
-**Strengths**  
-`Data Cleaning` · `ETL Pipelines` · `DAX Formulas` · `Customer Segmentation` · `Retail KPIs`
-
----
-
-## Featured Project
-
-### 🛒 RetailIQ — Data Flows & Automation
-> *End-to-end retail analytics pipeline — from raw mess to boardroom insight.*
-
-Most retail businesses are sitting on gold and don't know it. RetailIQ is built to change that.
-
-**What it solves:**
-- Raw transactional data arrives dirty, inconsistent, and unusable — Python fixes that
-- SQL structures it into a clean, queryable schema built for retail analysis
-- Power BI + DAX transforms the numbers into answers: top customers, revenue trends, churn signals
-
-**Business questions it answers:**
-- 📦 Which products are actually profitable?
-- 👤 Who are our most valuable customers — and are they at risk?
-- 💰 How much are we making, by channel, by period, by segment?
-
-`Python` · `SQL` · `Power BI` · `DAX`
-
-> 🚧 Currently in development — [RetailIQ is almost done](https://github.com/Alx00-lab/RetailIQ.git).
-
----
-
-## Let's Connect
-
-I'm open to **Data Analyst** roles, **freelance projects**, and **retail data consulting**.
-
-[![GitHub](https://img.shields.io/badge/GitHub-Alx00--lab-181717?style=flat-square&logo=github)](https://github.com/Alx00-lab)
-
----
+<h1 align="center">Hi, I'm Alexander 👋</h1>
+<h3 align="center">Data / Analytics Engineer — I build the pipelines that make raw data trustworthy</h3>
 
 <p align="center">
-  <sub>Data without context is just noise. I build the context.</sub>
+I take messy, unreliable data and turn it into pipelines that are tested, orchestrated, and safe to build decisions on.<br/>
+Not dashboards first — <b>infrastructure</b> first. The dashboard only matters if the numbers underneath it are right.
 </p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white" alt="Python"/>
+  <img src="https://img.shields.io/badge/SQL-4479A1?style=flat&logo=postgresql&logoColor=white" alt="SQL"/>
+  <img src="https://img.shields.io/badge/dbt-FF694B?style=flat&logo=dbt&logoColor=white" alt="dbt"/>
+  <img src="https://img.shields.io/badge/BigQuery-4285F4?style=flat&logo=googlebigquery&logoColor=white" alt="BigQuery"/>
+  <img src="https://img.shields.io/badge/Airflow-017CEE?style=flat&logo=apacheairflow&logoColor=white" alt="Airflow"/>
+  <img src="https://img.shields.io/badge/Docker-2496ED?style=flat&logo=docker&logoColor=white" alt="Docker"/>
+</p>
+
+---
+
+### What I do
+
+```
+Raw data  →  Python (extract & clean)  →  dbt (transform)  →  BigQuery (warehouse)  →  Airflow (orchestrate)
+```
+
+- **Pipeline engineering** — ingestion → cleaning → transformation → load, built as code, not one-off notebooks
+- **Data quality as a first-class step** — every null-replacement rule, every type coercion is verified against real data before it ships, not assumed
+- **Orchestration & containerization** — pipelines that run on a schedule and are reproducible anywhere, not "works on my machine"
+
+---
+
+### Stack
+
+| Layer | Tools |
+|---|---|
+| Languages | `Python` · `SQL` |
+| Transformation | `dbt` |
+| Warehouse | `BigQuery` · `DuckDB` (local dev) |
+| Orchestration | `Airflow` |
+| Quality | `dbt tests` · `Great Expectations` |
+| Containers | `Docker` |
+| Versioning | `Git` / `GitHub` |
+
+---
+
+### Featured Projects
+
+#### 🎫 [IT Support Ticket Pipeline](https://github.com/Alx00-lab/Ticket_Automate_pipeline) — *in active development*
+End-to-end pipeline on a 100,000-row ticket dataset: extraction → cleaning → transformation → warehouse, orchestrated and containerized.
+
+- Built a validated extraction layer and caught a silent data-loss bug where pandas' default null-handling was quietly wiping ~20,000 legitimate values
+- Two distinct, data-verified rules for placeholder-to-null conversion — one state-dependent, one universal — confirmed by cross-tabulating the data rather than assumed
+- Currently building the dbt + BigQuery layer, with Airflow orchestration and Docker containerization next
+
+`Python` · `pandas` · `SQL` · `dbt` · `BigQuery` · `Airflow` · `Docker`
+
+#### 🧾 [Invoice PDF Extractor](https://github.com/Alx00-lab/invoice-extractor) — *live tool, warehouse layer in progress*
+A working extraction tool that pulls structured data out of unstructured invoice PDFs, with a public demo.
+
+- 🔗 **[Live demo](#)** *(add your Streamlit URL here)*
+- Adding a dbt transformation layer and a BigQuery load so extracted invoice data lands in a queryable warehouse, not just a UI
+
+`Python` · `Streamlit` · `dbt` · `BigQuery`
+
+#### 📊 API Ingestion + Dimensional Modeling — *planned*
+A pipeline built from a live public API (not a static CSV), with an explicit star or snowflake schema designed and documented — the piece the other two projects don't cover.
+
+`Python` · `dbt` · `BigQuery` · `Dimensional Modeling`
+
+---
+
+### Currently focused on
+
+Finishing the ticket pipeline's dbt + BigQuery layer, then Airflow and Docker — applying for **Data/Analytics Engineer** and **ETL Developer** roles as each stage ships, rather than waiting for a "finished" portfolio.
+
+---
+
+### Let's connect
+
+Open to remote **Data Engineer / Analytics Engineer** roles. If you're building a data team and want someone who owns the pipeline end to end — reach out.
+
+<!-- Add your links: LinkedIn · Email -->
